@@ -82,6 +82,15 @@ class MethodChannelGamesServices extends GamesServicesPlatform {
   }
 
   @override
+  Future<int?> getPlayerRank(
+      {iOSLeaderboardID = "", androidLeaderboardID = ""}) async {
+    return await _channel.invokeMethod("getPlayerRank", {
+      "leaderboardID":
+      Device.isPlatformAndroid ? androidLeaderboardID : iOSLeaderboardID
+    });
+  }
+
+  @override
   Future<String?> signIn({bool shouldEnableSavedGame = false}) async {
     if (Device.isPlatformAndroid) {
       return await _channel.invokeMethod(

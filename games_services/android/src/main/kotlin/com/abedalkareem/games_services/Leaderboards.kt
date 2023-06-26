@@ -138,4 +138,27 @@ class Leaderboards(private var activityPluginBinding: ActivityPluginBinding) {
         result.error(PluginError.FailedToGetScore.errorCode(), it.localizedMessage, null)
       }
   }
+
+  fun getPlayerRank(leaderboardID: String, result: MethodChannel.Result) {
+    leaderboardsClient
+      ?.loadCurrentPlayerLeaderboardScore(
+        leaderboardID,
+        LeaderboardVariant.TIME_SPAN_ALL_TIME,
+        LeaderboardVariant.COLLECTION_PUBLIC
+      )
+      ?.addOnSuccessListener {
+        val score = it.get()
+        if (score != null) {
+          result.success(score.rank)
+        } else {
+          result.error(
+            PluginError.FailedToGetRank.errorCode(),
+            PluginError.FailedToGetRank.errorMessage(),
+            null
+          )
+        }
+      }?.addOnFailureListener {
+        result.error(PluginError.FailedToGetRank.errorCode(), it.localizedMessage, null)
+      }
+  }
 }

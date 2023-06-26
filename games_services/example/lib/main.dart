@@ -103,6 +103,10 @@ class AppState extends State<App> {
                           child: const Text('Get player score'),
                         ),
                         ElevatedButton(
+                          onPressed: _getPlayerRank,
+                          child: const Text('Get player rank'),
+                        ),
+                        ElevatedButton(
                           onPressed: _getPlayerName,
                           child: const Text('Get player name'),
                         ),
@@ -159,6 +163,11 @@ class AppState extends State<App> {
 
   void _getPlayerScore() async {
     final result = await Player.getPlayerScore();
+    print(result);
+  }
+
+  void _getPlayerRank() async {
+    final result = await Player.getPlayerRank();
     print(result);
   }
 

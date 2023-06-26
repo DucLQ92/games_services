@@ -88,6 +88,12 @@ abstract class GamesServicesPlatform extends PlatformInterface {
     throw UnimplementedError("not implemented.");
   }
 
+  /// Get player rank for a specific leaderboard.
+  Future<int?> getPlayerRank(
+      {iOSLeaderboardID = "", androidLeaderboardID = ""}) async {
+    throw UnimplementedError("not implemented.");
+  }
+
   /// Check if player is underage (always false on Android).
   Future<bool?> get playerIsUnderage =>
       throw UnimplementedError("not implemented.");

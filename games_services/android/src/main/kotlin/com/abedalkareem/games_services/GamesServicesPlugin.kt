@@ -140,6 +140,10 @@ class GamesServicesPlugin : FlutterPlugin,
         val leaderboardID = call.argument<String>("leaderboardID") ?: ""
         leaderboards?.getPlayerScore(leaderboardID, result)
       }
+      Method.GetPlayerRank -> {
+        val leaderboardID = call.argument<String>("leaderboardID") ?: ""
+        leaderboards?.getPlayerRank(leaderboardID, result)
+      }
       Method.GetPlayerID -> {
         player?.getPlayerID(activity, result)
       }

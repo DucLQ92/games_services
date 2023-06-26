@@ -43,6 +43,9 @@ public class SwiftGamesServicesPlugin: NSObject, FlutterPlugin {
     case .getPlayerScore:
       let leaderboardID = (arguments?["leaderboardID"] as? String) ?? ""
       leaderboards.getPlayerScore(leaderboardID: leaderboardID, result: result)
+    case .getPlayerRank:
+      let leaderboardID = (arguments?["leaderboardID"] as? String) ?? ""
+      leaderboards.getPlayerRank(leaderboardID: leaderboardID, result: result)
     case .loadLeaderboardScores:
       let leaderboardID = (arguments?["leaderboardID"] as? String) ?? ""
       let span = (arguments?["span"] as? Int) ?? 0

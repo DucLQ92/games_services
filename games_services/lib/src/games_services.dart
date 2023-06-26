@@ -108,6 +108,14 @@ class GamesServices {
         androidLeaderboardID: androidLeaderboardID);
   }
 
+  /// Get player rank for a specific leaderboard.
+  static Future<int?> getPlayerRank(
+      {iOSLeaderboardID = "", androidLeaderboardID = ""}) async {
+    return await Player.getPlayerRank(
+        iOSLeaderboardID: iOSLeaderboardID,
+        androidLeaderboardID: androidLeaderboardID);
+  }
+
   /// Get the player name.
   /// On iOS the player alias is the name used by the Player visible in the leaderboard
   static Future<String?> getPlayerName() async {

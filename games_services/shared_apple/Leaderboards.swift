@@ -39,6 +39,23 @@ class Leaderboards: BaseGamesServices {
       result(PluginError.notSupportedForThisOSVersion.flutterError())
     }
   }
+
+  func getPlayerRank(leaderboardID: String, result: @escaping FlutterResult) {
+      if #available(iOS 14.0, *) {
+        Task {
+          do {
+            let leaderboard = try await GKLeaderboard.loadLeaderboards(IDs: [leaderboardID])
+            let response = try await leaderboard.first?.loadEntries(for: [currentPlayer], timeScope: .allTime)
+            let (localPlayerEntry, _) = response ?? (nil, nil)
+            result(localPlayerEntry?.rank ?? 0)
+          } catch {
+            result(error.flutterError(code: .failedToGetRank))
+          }
+        }
+      } else {
+        result(PluginError.notSupportedForThisOSVersion.flutterError())
+      }
+    }
   
   func loadLeaderboardScores(leaderboardID: String, span: Int, leaderboardCollection: Int, maxResults: Int, result: @escaping FlutterResult) {
     if #available(iOS 14.0, *) {

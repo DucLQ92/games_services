@@ -32,6 +32,14 @@ abstract class Player {
         androidLeaderboardID: androidLeaderboardID);
   }
 
+  /// Get player rank for a specific leaderboard.
+  static Future<int?> getPlayerRank(
+      {iOSLeaderboardID = "", androidLeaderboardID = ""}) async {
+    return await GamesServicesPlatform.instance.getPlayerRank(
+        iOSLeaderboardID: iOSLeaderboardID,
+        androidLeaderboardID: androidLeaderboardID);
+  }
+
   /// Check if player is underage (always false on Android).
   static Future<bool?> get isUnderage async {
     return await GamesServicesPlatform.instance.playerIsUnderage;

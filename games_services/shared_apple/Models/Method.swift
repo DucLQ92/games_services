@@ -9,6 +9,7 @@ enum Method: String {
   case getPlayerID = "getPlayerID"
   case getPlayerName = "getPlayerName"
   case getPlayerScore = "getPlayerScore"
+  case getPlayerRank = "getPlayerRank"
   case playerIsUnderage = "playerIsUnderage"
   case playerIsMultiplayerGamingRestricted = "playerIsMultiplayerGamingRestricted"
   case playerIsPersonalizedCommunicationRestricted = "playerIsPersonalizedCommunicationRestricted"

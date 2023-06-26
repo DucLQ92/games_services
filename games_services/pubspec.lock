@@ -33,10 +33,11 @@ packages:
   games_services_platform_interface:
     dependency: "direct main"
     description:
-      name: games_services_platform_interface
-      sha256: e3173860bdd2b02aca3bd1325c79b97e6bbf909ba6ceca21df4b73828dba2785
-      url: "https://pub.dev"
-    source: hosted
+      path: games_services_platform_interface
+      ref: develop
+      resolved-ref: ad2a7e1044e78b328d5775436847bdeaee4e5e4e
+      url: "https://github.com/DucLQ92/games_services"
+    source: git
     version: "3.0.1"
   js:
     dependency: transitive

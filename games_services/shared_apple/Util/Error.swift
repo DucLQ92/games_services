@@ -14,13 +14,14 @@ extension Error {
 }
 
 enum PluginError: String {
-  
   var errorDescription: String? {
     switch self {
     case .failedToSendScore:
       return "Failed to send the score"
     case .failedToGetScore:
       return "Failed to get the score"
+    case .failedToGetRank:
+      return "Failed to get the rank"
     case .failedToSendAchievement:
       return "Failed to send the achievement"
     case .failedToAuthenticate:
@@ -46,6 +47,7 @@ enum PluginError: String {
   
   case failedToSendScore = "failed_to_send_score"
   case failedToGetScore = "failed_to_get_score"
+  case failedToGetRank = "failed_to_get_rank"
   case failedToSendAchievement = "failed_to_send_achievement"
   case failedToAuthenticate = "failed_to_authenticate"
   case failedToSaveGame = "failed_to_save_game"
