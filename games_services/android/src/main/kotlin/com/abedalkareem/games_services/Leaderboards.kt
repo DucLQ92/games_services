@@ -58,7 +58,7 @@ class Leaderboards(private var activityPluginBinding: ActivityPluginBinding) {
     result: MethodChannel.Result
   ) {
     activity ?: return
-    leaderboardsClient?.loadTopScores(leaderboardID, span, leaderboardCollection, maxResults)
+    leaderboardsClient?.loadTopScores(leaderboardID, span, leaderboardCollection, maxResults, true)
       ?.addOnCompleteListener { task ->
         val data = task.result.get()
         if (data == null) {
